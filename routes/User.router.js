@@ -2,10 +2,12 @@ const express=require('express')
 const bcrypt=require("bcrypt")
 const jwt=require("jsonwebtoken")
 const {validator}=require("../middlewares/validator")
+const {UserModel}=require("../models/user.model")
 const userRouter=express.Router();
 
-userRouter.post("/register",validator,async(req,res)=>{
+userRouter.post("/register",async(req,res)=>{
     const {name,email,password,gender}=req.body
+    
     try{ 
         bcrypt.hash(password,8, async(err, hash) =>{
             const user=new UserModel({name,email,password:hash,gender})
