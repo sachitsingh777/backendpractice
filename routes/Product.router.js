@@ -1,5 +1,5 @@
 const express=require("express")
-const { ProductModel } = require("../models/post.model")
+const { ProductModel } = require("../models/product.model")
 const productRouter=express.Router()
 
 productRouter.get("/",async(req,res)=>{
